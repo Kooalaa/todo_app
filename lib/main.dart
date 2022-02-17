@@ -40,8 +40,17 @@ class _todoAppState extends State<todoApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        drawer: Drawer(backgroundColor: Colors.amber),
+        bottomNavigationBar: BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          color: Colors.amber,
+          child: Container(height: 50.0)
+        ),
         appBar: AppBar(
-          title: const Text('TodoApp')
+          title: const Text('TodoApp'),
+          actions: <Widget>[
+            IconButton(onPressed: null, icon: Icon(Icons.abc_rounded))
+          ],
           ),
         body: toDoList(
           toDos, toDoIndex, deleteToDo),
