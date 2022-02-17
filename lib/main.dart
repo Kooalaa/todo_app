@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'todolist.dart';
-
+import './drawer.dart';
+import './bottombar.dart';
 void main() {
   runApp(const todoApp());
 }
@@ -40,16 +41,12 @@ class _todoAppState extends State<todoApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: Drawer(backgroundColor: Colors.amber),
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          color: Colors.amber,
-          child: Container(height: 50.0)
-        ),
+        drawer: drawer(toDos),
+        bottomNavigationBar: bottomBar(),
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
-            IconButton(onPressed: null, icon: Icon(Icons.abc_rounded))
+            IconButton(onPressed: null, icon: Icon(Icons.add_rounded))
           ],
           ),
         body: toDoList(
