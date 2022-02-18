@@ -14,26 +14,25 @@ class todoApp extends StatefulWidget {
 }
 
 class _todoAppState extends State<todoApp> {
-  var toDos = [
-  ];
+  var toDos = [];
 
   var toDoIndex = 0;
 
   void createToDo() {
-
     setState(() {
       toDos.add(toDoIndex);
-      toDoIndex = toDoIndex + 1;      
+      toDoIndex = toDoIndex + 1;
     });
     print(toDos);
+    print(toDoIndex);
   }
 
   void deleteToDo() {
-
     setState(() {
       toDos.removeLast();
       toDoIndex = toDoIndex - 1;
     });
+    print(toDoIndex);
   }
 
   @override
@@ -44,20 +43,27 @@ class _todoAppState extends State<todoApp> {
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           color: Colors.amber,
-          child: Container(height: 50.0)
+          child: Container(
+            height: 60.0,
+            child: Image.asset(
+              'assets/images/todolist.png',
+              alignment: Alignment.bottomLeft,
+            ),
+          ),
         ),
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
             IconButton(onPressed: null, icon: Icon(Icons.abc_rounded))
           ],
-          ),
-        body: toDoList(
-          toDos, toDoIndex, deleteToDo),
+        ),
+        body: ListView(
+          children: [
+            toDoList(toDos, toDoIndex, deleteToDo),
+          ],
+        ),
         floatingActionButton: ElevatedButton(
-          child: const Text('Add to do'),
-           onPressed: createToDo
-           ),
+            child: const Text('Add to do'), onPressed: createToDo),
       ),
     );
   }
