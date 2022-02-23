@@ -41,18 +41,8 @@ class _todoAppState extends State<todoApp> {
     return MaterialApp(
       home: Scaffold(
 
-        drawer: Drawer(backgroundColor: Colors.amber),
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          color: Colors.amber,
-          child: Container(
-            height: 60.0,
-            child: Image.asset(
-              'assets/images/todolist.png',
-              alignment: Alignment.bottomLeft,
-            ),
-          ),
-        ),
+        drawer: drawer('dasd'),
+        bottomNavigationBar: bottomBar(),
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
