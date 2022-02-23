@@ -12,6 +12,7 @@ class drawer extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
+            Text(text),
             Container(
               margin: const EdgeInsets.all(10.0),
               padding: EdgeInsets.only(left: 330, bottom: 50),
