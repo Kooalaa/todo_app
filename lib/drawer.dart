@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
+import 'apitest.dart';
 
 class drawer extends StatelessWidget {
   final text;
+   Future<Album> futureAlbum;
 
-  drawer(this.text);
+
+    //futureAlbum = fetchAlbum();
+  
+
+  drawer(this.text): futureAlbum = fetchAlbum();
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      child: Center(
+          child: Center(
+          child: FutureBuilder<Album>(
+            future: futureAlbum,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(snapshot.data!.datetime);
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              // By default, show a loading spinner.
+              return const CircularProgressIndicator();
+            }
+          )
+          )
+      /*child: Center(
         child: Column(
           children: [
             Text(text),
@@ -29,7 +49,7 @@ class drawer extends StatelessWidget {
             ),
           ],
         )
-        ),
+        ),*/
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class bottomBar extends StatelessWidget {
   const bottomBar({ Key? key }) : super(key: key);
 
@@ -7,6 +8,7 @@ class bottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
           shape: const CircularNotchedRectangle(),
+
           color: Colors.amber,
           child: Container(
             height: 60.0,
