@@ -4,7 +4,7 @@ import 'todobox.dart';
 class toDoList extends StatelessWidget {
   final List<dynamic> toDos;
   final int toDoIndex;
-  final VoidCallback deleteToDo;
+  final Function deleteToDo;
 
   toDoList(this.toDos, this.toDoIndex, this.deleteToDo);
 
@@ -13,7 +13,7 @@ class toDoList extends StatelessWidget {
     return Column(
       children: [
        ...toDos.map((e) {
-         return toDoBox(deleteToDo);
+         return toDoBox(deleteToDo, e);
        })
       ],      
     );
