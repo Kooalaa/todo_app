@@ -15,46 +15,47 @@ class todoApp extends StatefulWidget {
 }
 
 class _todoAppState extends State<todoApp> {
-  var toDos = [
-  ];
+  var toDos = [];
 
   var toDoIndex = 0;
 
   void createToDo() {
-
     setState(() {
       toDos.add(toDoIndex);
-      toDoIndex = toDoIndex + 1;      
+      toDoIndex = toDoIndex + 1;
     });
     print(toDos);
+    print(toDoIndex);
   }
 
   void deleteToDo() {
-
     setState(() {
       toDos.removeLast();
       toDoIndex = toDoIndex - 1;
     });
+    print(toDoIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: drawer(toDos),
+
+        drawer: drawer('dasd'),
         bottomNavigationBar: bottomBar(),
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
             IconButton(onPressed: null, icon: Icon(Icons.add_rounded))
           ],
-          ),
-        body: toDoList(
-          toDos, toDoIndex, deleteToDo),
+        ),
+        body: ListView(
+          children: [
+            toDoList(toDos, toDoIndex, deleteToDo),
+          ],
+        ),
         floatingActionButton: ElevatedButton(
-          child: const Text('Add to do'),
-           onPressed: createToDo
-           ),
+            child: const Text('Add to do'), onPressed: createToDo),
       ),
     );
   }
