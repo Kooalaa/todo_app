@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'todolist.dart';
 import './drawer.dart';
 import './bottombar.dart';
+import './alert.dart';
 void main() {
   runApp(const todoApp());
 }
@@ -15,22 +16,34 @@ class todoApp extends StatefulWidget {
 }
 
 class _todoAppState extends State<todoApp> {
-  var toDos = [];
+  var toDos = [
+    
+  ];
+  bool show = false;
 
-  var toDoIndex = 0;
+  var toDoIndex = -1;
+
+  void ok(text) {
+    setState(() {
+      show = false;
+      toDos.add(text);
+      print(toDoIndex);
+      print(toDos);
+      toDoIndex += 1;
+    });
+  }
 
   void createToDo() {
     setState(() {
-      toDos.add(toDoIndex);
-      toDoIndex = toDoIndex + 1;
+      show = true;
+      print(toDoIndex);
     });
-    print(toDos);
-    print(toDoIndex);
   }
 
-  void deleteToDo() {
+  void deleteToDo(value) {
     setState(() {
-      toDos.removeLast();
+      toDos.remove(value);
+      print(value);
       toDoIndex = toDoIndex - 1;
     });
     print(toDoIndex);
@@ -51,7 +64,9 @@ class _todoAppState extends State<todoApp> {
         ),
         body: ListView(
           children: [
-            toDoList(toDos, toDoIndex, deleteToDo),
+            show ?
+            alert(ok)
+            : toDoList(toDos, toDoIndex, deleteToDo),
           ],
         ),
         floatingActionButton: ElevatedButton(

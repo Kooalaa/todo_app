@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class toDoBox extends StatelessWidget {
-  final deleteToDo;
+  final Function deleteToDo;
+  final toDos;
 
-  toDoBox(this.deleteToDo);
-
+  toDoBox(this.deleteToDo, this.toDos);
   @override
   Widget build(BuildContext context) {
+    print(toDos);
     return Center(
       child: Container(
         padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 10.0),
@@ -17,23 +18,13 @@ class toDoBox extends StatelessWidget {
         height: 80.0,
         child: Row(
           children: [        
-            Flexible(
-              child: TextField(   
-                textAlign: TextAlign.left,          
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color.fromARGB(255, 230, 229, 229),
-                  //contentPadding: EdgeInsets.all(20.0),
-                ),
-              ),
-            ),
+            Text(toDos),
             IconButton(
               iconSize: 25.0,
               padding: EdgeInsets.only(bottom: 10.0, right: 10.0),
               alignment: Alignment.topRight,
               icon: const Icon(Icons.close),
-              onPressed: deleteToDo,
+              onPressed: () => deleteToDo(toDos),
               color: Color.fromARGB(255, 245, 245, 245),
             ),
           ],
