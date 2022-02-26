@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'todolist.dart';
 import './drawer.dart';
 import './bottombar.dart';
 import './alert.dart';
+
 void main() {
   runApp(const todoApp());
 }
@@ -16,11 +19,8 @@ class todoApp extends StatefulWidget {
 }
 
 class _todoAppState extends State<todoApp> {
-  var toDos = [
-    
-  ];
+  var toDos = [];
   bool show = false;
-
   var toDoIndex = -1;
 
   void ok(text) {
@@ -53,20 +53,17 @@ class _todoAppState extends State<todoApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-
         drawer: drawer('dasd'),
         bottomNavigationBar: bottomBar(),
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
-            IconButton(onPressed: null, icon: Icon(Icons.add_rounded))
+            IconButton(onPressed: null, icon: Icon(Icons.info))
           ],
         ),
         body: ListView(
           children: [
-            show ?
-            alert(ok)
-            : toDoList(toDos, toDoIndex, deleteToDo),
+            show ? alert(ok) : toDoList(toDos, toDoIndex, deleteToDo),
           ],
         ),
         floatingActionButton: ElevatedButton(
