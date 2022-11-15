@@ -30,7 +30,8 @@ class _alertState extends State<alert> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: TextField(
+      content: TextField(
+
         controller: myController,
       ),
       actions: [

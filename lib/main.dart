@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import 'todolist.dart';
@@ -58,7 +56,8 @@ class _todoAppState extends State<todoApp> {
         appBar: AppBar(
           title: const Text('TodoApp'),
           actions: <Widget>[
-            IconButton(onPressed: null, icon: Icon(Icons.info))
+            IconButton(onPressed: null,
+              icon: Icon(Icons.info))
           ],
         ),
         body: ListView(
