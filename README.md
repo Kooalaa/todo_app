@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+Projektin ideana oli kehittää yksinkertainen tehtävälista sovellus, sovelluksessa voi lisätä tehtävälaatikoita näytölle kirjoitusmuodossa.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
