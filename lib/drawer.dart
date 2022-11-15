@@ -18,34 +18,24 @@ class drawer extends StatelessWidget {
                 future: futureAlbum,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return Text(snapshot.data!.datetime);
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Local Time: " +
+                            snapshot.data!.datetime.substring(11, 19)),
+                        Text("Date: " +
+                            snapshot.data!.datetime.substring(8, 10) +
+                            "." +
+                            snapshot.data!.datetime.substring(5, 7) +
+                            "." +
+                            snapshot.data!.datetime.substring(0, 4)),
+                      ],
+                    );
                   } else if (snapshot.hasError) {
                     return Text('${snapshot.error}');
                   }
-                  // By default, show a loading spinner.
                   return const CircularProgressIndicator();
-                }))
-        /*child: Center(
-        child: Column(
-          children: [
-            Text(text),
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              padding: EdgeInsets.only(left: 330, bottom: 50),
-              color: Color.fromARGB(255, 12, 138, 241),
-              width: 400.0,
-              height: 80.0,
-            ),
-            Container(
-               margin: const EdgeInsets.all(10.0),
-               padding: EdgeInsets.only(left: 330, bottom: 50),
-               color: Color.fromARGB(255, 12, 138, 241),
-               width: 400.0,
-               height: 80.0,
-            ),
-          ],
-        )
-        ),*/
-        );
+                })));
   }
 }
