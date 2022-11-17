@@ -2,7 +2,12 @@
 
 A new Flutter project.
 
-Projektin ideana oli kehittää yksinkertainen tehtävälista sovellus, sovelluksessa voi lisätä tehtävälaatikoita näytölle kirjoitusmuodossa.
+Project idea:
+
+Technologies used:
+
+Use cases:
+Many people want to write tasks and maybe shopping lists on their phone for future use, so here is one simple implementation of that.
 
 ## Getting Started
 
